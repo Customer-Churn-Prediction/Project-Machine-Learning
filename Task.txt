@@ -1,9 +1,10 @@
-1. Churn in each State Bar Graph
-2. Random Forest Classifier
-3. Feature importances graph
-4. ROC Curve
-5. Naive Bayes (Mitra)
-6. KNN (dada)
-7. k-fold cross-validation (Sohom) - Linear Regression slide, p-19
-8. Data Mining (Sandipa)
-9. decision trees (Soumita)
+Churn in each State Bar Graph
+Random Forest Classifier
+Feature importances graph
+ROC Curve
+
+Naive Bayes (Mitra)
+KNN (Swarup da)
+k-fold cross-validation (Sohom) - Linear Regression slide, p-19
+Data Mining (Sandipa)
+Decision Trees (Soumita and Souvik)
