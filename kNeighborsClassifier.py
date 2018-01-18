@@ -74,3 +74,8 @@ for group in test_set:
             correct += 1
         total += 1
 print('Accuracy:', correct/total)
+
+'''
+Output:
+Accuracy: 0.8828828828828829
+'''
