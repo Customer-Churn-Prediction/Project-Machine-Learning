@@ -5,11 +5,11 @@ import pandas as pd
 import random
 
 # defining the k nearest neighbors classifier algorithm
-# we pass the training data and the test data(predict) as list
+# we pass the training data and the test data as list
 # we pass k number of neighbors with 3 neighbors as default
 def k_neighbors_classifier(train_set, test_set, k=3):
     
-    # declaring a list of euclidean distances
+    # declaring a list for calculating and storing euclidean distances
     distances = []
     
     # calculating the euclidean distances and storing it in the list 'distances'
@@ -79,6 +79,7 @@ for i in test_data:
 
 correct = 0
 total = 0
+confusion_matrix = [[0, 0], [0, 0]]
 
 # calculating the accuracy
 for group in test_set:
@@ -86,12 +87,26 @@ for group in test_set:
         vote,confidence = k_neighbors_classifier(train_set, data, k=5)
         if group == vote:
             correct += 1
+            confusion_matrix[group][group] += 1
+        else:
+            confusion_matrix[group][vote] += 1
         total += 1
-print('Total: ', total)
-print('Correct: ', correct)
+        
+confusion_df = pd.DataFrame(data=confusion_matrix, 
+                            columns=['Predicted False', 'Predicted True'],
+                            index = ['Actual False', 'Actual True'])
+print('Total:', total)
+print('Correct:', correct)
+print('Confusion Matrix:\n', confusion_df)
 print('Accuracy:', correct/total)
 
 '''
 Output:
-Accuracy: 0.8828828828828829
+Total: 999
+Correct: 871
+Confusion Matrix:               
+              Predicted False  Predicted True
+Actual False              835              16
+Actual True               112              36
+Accuracy: 0.8718718718718719
 '''
